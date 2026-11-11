@@ -62,7 +62,7 @@
 
   .map {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-template-rows: repeat(8, auto);
     gap: 5px;
   }
@@ -106,10 +106,53 @@
 
   footer { margin-top: 22px; font-size: 12px; color: var(--muted); text-align: center; }
 
+  /* Keep grid children from forcing the page wider than the screen */
+  .main > *, .stats > * { min-width: 0; }
+
+  .finder { display: none; margin-bottom: 14px; }
+  .finder select {
+    width: 100%; font: inherit; font-size: 16px; padding: 11px 12px;
+    border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink);
+  }
+
   @media (max-width: 860px) {
     .main { grid-template-columns: 1fr; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     header .title { text-align: left; }
+    .finder { display: block; }
+  }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 16px 12px 28px; }
+    header { gap: 10px; padding-bottom: 14px; margin-bottom: 14px; }
+    header img { height: 40px; }
+    header h1 { font-size: 20px; }
+    header p { font-size: 13px; }
+
+    .stats { gap: 8px; margin-bottom: 14px; }
+    .stat { padding: 10px 12px; }
+    .stat .n { font-size: 22px; }
+    .stat .l { font-size: 12px; }
+
+    /* Prescriber buttons scroll sideways in one row instead of wrapping */
+    .controls { flex-wrap: nowrap; overflow-x: auto; margin: 0 -12px 12px; padding: 2px 12px 6px; scrollbar-width: none; }
+    .controls::-webkit-scrollbar { display: none; }
+    .controls .lbl { display: none; }
+    .chip { flex: 0 0 auto; padding: 9px 14px; }
+
+    .card { padding: 10px; border-radius: 12px; }
+    .map { gap: 3px; }
+    .tile { border-radius: 5px; font-size: 11px; }
+    .tile small { font-size: 8px; }
+    .tile.pend::after { top: 1px; right: 1px; width: 5px; height: 5px; box-shadow: none; }
+    .tile { justify-content: flex-end; padding-bottom: 3px; }
+    .tile:hover, .tile:focus-visible, .tile.sel { transform: none; box-shadow: 0 0 0 2px var(--navy); }
+
+    .legend { gap: 8px 12px; font-size: 12px; margin-top: 12px; }
+    .legend .note { margin-left: 0 !important; width: 100%; }
+    .side { display: flex; flex-direction: column; gap: 12px; }
+    .gaps { margin-top: 0; }
+    .detail .st { font-size: 20px; }
   }
   @media print {
     body { background: #fff; }
@@ -137,6 +180,9 @@
 
   <div class="main">
     <div class="card">
+      <div class="finder">
+        <select id="finder" aria-label="Find a state"><option value="">Find a state…</option></select>
+      </div>
       <div class="map" id="map"></div>
       <div class="legend" id="legend"></div>
     </div>
@@ -225,6 +271,27 @@ let view = "All";
 let selected = null;
 
 const $ = id => document.getElementById(id);
+const canHover = window.matchMedia("(hover: hover)").matches;
+const isNarrow = () => window.matchMedia("(max-width: 860px)").matches;
+
+function selectState(code, fromFinder) {
+  selected = code || null;
+  renderMap();
+  renderDetail();
+  $("finder").value = selected || "";
+  // On phones the details card sits below the map, so bring it into view
+  if (selected && isNarrow()) $("detail").scrollIntoView({ behavior: "smooth", block: fromFinder ? "center" : "nearest" });
+}
+
+function renderFinder() {
+  const sel = $("finder");
+  Object.keys(DATA).sort((a, b) => DATA[a].n.localeCompare(DATA[b].n)).forEach(c => {
+    const o = document.createElement("option");
+    o.value = c; o.textContent = `${DATA[c].n} (${c})`;
+    sel.appendChild(o);
+  });
+  sel.addEventListener("change", () => selectState(sel.value, true));
+}
 const pend = s => DATA[s].p || [];
 
 function tileStyle(code) {
@@ -257,9 +324,12 @@ function renderMap() {
     b.title = `${d.n}: ${d.a.length ? d.a.join(", ") : "No active prescriber"}` +
               (pend(code).length ? ` (pending: ${pend(code).join(", ")})` : "");
     b.setAttribute("aria-label", b.title);
-    b.addEventListener("click", () => { selected = code; renderMap(); renderDetail(); });
-    b.addEventListener("mouseenter", () => renderDetail(code));
-    b.addEventListener("mouseleave", () => renderDetail());
+    b.addEventListener("click", () => selectState(code));
+    // Hover preview only on devices with a real mouse (avoids flicker on phones)
+    if (canHover) {
+      b.addEventListener("mouseenter", () => renderDetail(code));
+      b.addEventListener("mouseleave", () => renderDetail());
+    }
     map.appendChild(b);
   }
 }
@@ -270,14 +340,14 @@ function renderLegend() {
     : [["var(--c3)",`${view} active`],["var(--cp)",`${view} pending`],["#eef1f6","Not licensed"]];
   $("legend").innerHTML = items.map(([c,l]) => `<span><i style="background:${c}"></i>${l}</span>`).join("") +
     (view === "All" ? `<span><i class="dot"></i>Application pending</span>` : "") +
-    (view === "All" ? `<span style="margin-left:auto">Number on tile = active prescribers</span>` : "");
+    (view === "All" ? `<span class="note" style="margin-left:auto">Number on tile = active prescribers</span>` : "");
 }
 
 function renderDetail(hover) {
   const code = hover || selected;
   const el = $("detail");
   if (!code) {
-    el.innerHTML = `<h2>State details</h2><p class="sub" style="margin:0">Hover over or tap a state to see who covers it.</p>`;
+    el.innerHTML = `<h2>State details</h2><p class="sub" style="margin:0">${canHover ? "Hover over or click" : "Tap"} a state to see who covers it.</p>`;
     return;
   }
   const d = DATA[code];
@@ -328,6 +398,7 @@ function renderControls() {
 }
 
 renderStats();
+renderFinder();
 renderControls();
 renderMap();
 renderLegend();
