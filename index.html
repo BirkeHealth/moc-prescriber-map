@@ -21,6 +21,8 @@
     --c4: #00164c;
   }
   * { box-sizing: border-box; }
+  /* Always reserve scrollbar space so the layout never shifts when content height changes */
+  html { overflow-y: scroll; scrollbar-gutter: stable; }
   body {
     margin: 0;
     font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
@@ -59,6 +61,10 @@
   .chip .ct { opacity: .7; margin-left: 4px; font-size: 12px; }
 
   .main { display: grid; grid-template-columns: 1fr 280px; gap: 18px; align-items: start; }
+  @media (min-width: 861px) {
+    /* Long checklists scroll inside the card instead of stretching the page */
+    .detail { max-height: 560px; overflow-y: auto; overscroll-behavior: contain; }
+  }
 
   .map {
     display: grid;
@@ -351,6 +357,15 @@ function selectState(code, fromFinder) {
   if (selected && isNarrow()) $("detail").scrollIntoView({ behavior: "smooth", block: fromFinder ? "center" : "nearest" });
 }
 
+// Only redraw the details card when the hovered state actually changes,
+// and only clear it when the mouse leaves the whole map (not the gaps between tiles)
+let hovered = null;
+function showHover(code) {
+  if (code === hovered) return;
+  hovered = code;
+  renderDetail(code || undefined);
+}
+
 function renderFinder() {
   const sel = $("finder");
   Object.keys(DATA).sort((a, b) => DATA[a].n.localeCompare(DATA[b].n)).forEach(c => {
@@ -394,10 +409,7 @@ function renderMap() {
     b.setAttribute("aria-label", b.title);
     b.addEventListener("click", () => selectState(code));
     // Hover preview only on devices with a real mouse (avoids flicker on phones)
-    if (canHover) {
-      b.addEventListener("mouseenter", () => renderDetail(code));
-      b.addEventListener("mouseleave", () => renderDetail());
-    }
+    if (canHover) b.addEventListener("mouseenter", () => showHover(code));
     map.appendChild(b);
   }
 }
@@ -482,6 +494,8 @@ function renderControls() {
     box.appendChild(b);
   }
 }
+
+if (canHover) $("map").addEventListener("mouseleave", () => showHover(null));
 
 renderStats();
 renderFinder();
