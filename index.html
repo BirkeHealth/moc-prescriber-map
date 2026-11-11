@@ -109,6 +109,16 @@
   .detail ol .box { flex: 0 0 14px; height: 14px; margin-top: 2px; border: 2px solid #e09a00; border-radius: 3px; }
   .detail ol b { display: block; font-size: 13px; font-weight: 600; line-height: 1.3; }
   .detail ol small { display: block; font-size: 12px; color: var(--muted); line-height: 1.35; margin-top: 2px; }
+  .detail ol li.sent .box { border-color: var(--blue); background: linear-gradient(135deg, var(--blue) 50%, #fff 50%); }
+  .detail ol li.done .box { border-color: #12925a; background: #12925a; position: relative; }
+  .detail ol li.done .box::after { content: ""; position: absolute; left: 3px; top: 0; width: 4px; height: 7px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .detail ol li.done b { color: var(--muted); font-weight: 500; }
+  .tag { display: inline-block; font-style: normal; font-size: 11px; font-weight: 600; margin-top: 3px; }
+  .tag.sent { color: var(--blue); }
+  .tag.done { color: #12925a; }
+  .pi-prog { height: 6px; background: #eef1f6; border-radius: 99px; overflow: hidden; margin-top: 10px; }
+  .pi-prog span { display: block; height: 100%; background: #12925a; }
+  .pi-sum { font-size: 12px; color: var(--muted); margin-top: 4px; }
   .gaps { margin-top: 18px; }
   .gaps p { margin: 0 0 10px; font-size: 13px; line-height: 1.5; }
   .gaps b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 2px; }
@@ -225,7 +235,22 @@ const DATA = {
   IL:{n:"Illinois",a:["Alberto","Yadira","Emilio"]},
   IN:{n:"Indiana",a:["Morgan"]},
   IA:{n:"Iowa",a:["Alberto"]},
-  KS:{n:"Kansas",a:[],p:["Alberto"]},
+  KS:{n:"Kansas",a:[],p:["Alberto"],
+      items:{Alberto:{list:[
+        {t:"License fee", st:"done", d:"Nov 3, 2026"},
+        {t:"Advanced practice program transcript", st:"done", d:"Nov 5, 2026"},
+        {t:"School is approved", st:"done", d:"Nov 5, 2026"},
+        {t:"Application received"},
+        {t:"Application reviewed"},
+        {t:"Fingerprint card received"},
+        {t:"Fingerprint fee"},
+        {t:"Background check received from KBI"},
+        {t:"Malpractice insurance"},
+        {t:"National certification"},
+        {t:"Documents requested"},
+        {t:"Documents under review"},
+        {t:"Approved to license"},
+      ]}}},
   KY:{n:"Kentucky",a:["Alberto","Emilio"]},
   LA:{n:"Louisiana",a:["Alberto"]},
   ME:{n:"Maine",a:["Yadira"]},
@@ -254,9 +279,9 @@ const DATA = {
   TN:{n:"Tennessee",a:["Alberto","Emilio"]},
   TX:{n:"Texas",a:["Yadira","Emilio"],p:["Alberto"],
       items:{Alberto:{due:"Oct 24, 2027", list:[
-        ["APRN transcript(s) for APRN education", "Final copy of transcripts for the requested role and population focus area"],
-        ["APRN Verification of Completion form (Part II)", "Filled out by the program director, who submits it to the Board"],
-        ["APRN current national certification", "Legible copy of national certification for the requested role and population focus area"],
+        {t:"APRN transcript(s) for APRN education", s:"Final copy of transcripts for the requested role and population focus area"},
+        {t:"APRN Verification of Completion form (Part II)", s:"Filled out by the program director, who submits it to the Board"},
+        {t:"APRN current national certification", s:"Legible copy of national certification for the requested role and population focus area", st:"sent"},
       ]}}},
   UT:{n:"Utah",a:["Alberto","Yadira","Emilio"]},
   VT:{n:"Vermont",a:["Alberto"]},
@@ -369,10 +394,21 @@ function renderDetail(hover) {
     .concat(pend(code).map(n => {
       const it = d.items && d.items[n];
       if (!it) return `<li>${n}<span class="badge p">Pending</span></li>`;
+      // st: undefined = still missing, "sent" = submitted but not yet accepted, "done" = completed by the board
+      const open = it.list.filter(x => !x.st);
+      const sent = it.list.filter(x => x.st === "sent");
+      const done = it.list.filter(x => x.st === "done");
+      const item = x => {
+        const tag = x.st === "done" ? `<em class="tag done">Done${x.d ? " " + x.d : ""}</em>`
+                  : x.st === "sent" ? `<em class="tag sent">Sent, waiting on board</em>` : "";
+        return `<li class="${x.st || "open"}"><span class="box" aria-hidden="true"></span><div><b>${x.t}</b>${x.s ? `<small>${x.s}</small>` : ""}${tag}</div></li>`;
+      };
+      const group = (label, arr) => arr.length ? `<div class="pi-lbl">${label} (${arr.length})</div><ol>${arr.map(item).join("")}</ol>` : "";
       return `<li class="pi"><div class="pi-head">${n}<span class="badge p">Pending</span></div>
-        <div class="pi-due">Board deadline: ${it.due}</div>
-        <div class="pi-lbl">Still missing (${it.list.length})</div>
-        <ol>${it.list.map(([t, s]) => `<li><span class="box" aria-hidden="true"></span><div><b>${t}</b><small>${s}</small></div></li>`).join("")}</ol></li>`;
+        ${it.due ? `<div class="pi-due">Board deadline: ${it.due}</div>` : ""}
+        <div class="pi-prog"><span style="width:${Math.round(done.length / it.list.length * 100)}%"></span></div>
+        <div class="pi-sum">${done.length} of ${it.list.length} complete${sent.length ? ` &middot; ${sent.length} sent` : ""}</div>
+        ${group("Still missing", open)}${group("Sent", sent)}${group("Completed", done)}</li>`;
     }));
   el.innerHTML = `<div class="st">${d.n}</div>
     <div class="sub">${code} &middot; ${d.a.length} active prescriber${d.a.length === 1 ? "" : "s"}</div>
