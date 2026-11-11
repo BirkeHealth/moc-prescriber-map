@@ -100,6 +100,15 @@
   .badge.a { background: #e6eeff; color: var(--blue); }
   .badge.p { background: #fdf1d2; color: #9a6a00; }
   .badge.n { background: #fbe4e4; color: #b42318; }
+  .detail li.pi { display: block; }
+  .pi-head { display: flex; justify-content: space-between; align-items: center; }
+  .pi-due { font-size: 12px; color: #9a6a00; margin-top: 4px; }
+  .pi-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 10px 0 2px; font-weight: 600; }
+  .detail ol { list-style: none; padding: 0; margin: 0; }
+  .detail ol li { display: flex; justify-content: flex-start; gap: 9px; border-top: 0; padding: 6px 0; }
+  .detail ol .box { flex: 0 0 14px; height: 14px; margin-top: 2px; border: 2px solid #e09a00; border-radius: 3px; }
+  .detail ol b { display: block; font-size: 13px; font-weight: 600; line-height: 1.3; }
+  .detail ol small { display: block; font-size: 12px; color: var(--muted); line-height: 1.35; margin-top: 2px; }
   .gaps { margin-top: 18px; }
   .gaps p { margin: 0 0 10px; font-size: 13px; line-height: 1.5; }
   .gaps b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 2px; }
@@ -243,7 +252,12 @@ const DATA = {
   SC:{n:"South Carolina",a:["Emilio"]},
   SD:{n:"South Dakota",a:["Alberto"]},
   TN:{n:"Tennessee",a:["Alberto","Emilio"]},
-  TX:{n:"Texas",a:["Yadira","Emilio"],p:["Alberto"]},
+  TX:{n:"Texas",a:["Yadira","Emilio"],p:["Alberto"],
+      items:{Alberto:{due:"Oct 24, 2027", list:[
+        ["APRN transcript(s) for APRN education", "Final copy of transcripts for the requested role and population focus area"],
+        ["APRN Verification of Completion form (Part II)", "Filled out by the program director, who submits it to the Board"],
+        ["APRN current national certification", "Legible copy of national certification for the requested role and population focus area"],
+      ]}}},
   UT:{n:"Utah",a:["Alberto","Yadira","Emilio"]},
   VT:{n:"Vermont",a:["Alberto"]},
   VA:{n:"Virginia",a:["Alberto","Emilio"]},
@@ -352,7 +366,14 @@ function renderDetail(hover) {
   }
   const d = DATA[code];
   const rows = d.a.map(n => `<li>${n}<span class="badge a">Active</span></li>`)
-    .concat(pend(code).map(n => `<li>${n}<span class="badge p">Pending</span></li>`));
+    .concat(pend(code).map(n => {
+      const it = d.items && d.items[n];
+      if (!it) return `<li>${n}<span class="badge p">Pending</span></li>`;
+      return `<li class="pi"><div class="pi-head">${n}<span class="badge p">Pending</span></div>
+        <div class="pi-due">Board deadline: ${it.due}</div>
+        <div class="pi-lbl">Still missing (${it.list.length})</div>
+        <ol>${it.list.map(([t, s]) => `<li><span class="box" aria-hidden="true"></span><div><b>${t}</b><small>${s}</small></div></li>`).join("")}</ol></li>`;
+    }));
   el.innerHTML = `<div class="st">${d.n}</div>
     <div class="sub">${code} &middot; ${d.a.length} active prescriber${d.a.length === 1 ? "" : "s"}</div>
     <ul>${rows.length ? rows.join("") : `<li>No coverage<span class="badge n">Gap</span></li>`}</ul>`;
