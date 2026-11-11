@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prescriber State Coverage | My Online Consultation</title>
+<link rel="icon" href="data:image/png;base64,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">
+<style>
+  :root {
+    --blue: #336dff;
+    --navy: #00164c;
+    --ink: #1c2540;
+    --muted: #5b6480;
+    --line: #e3e7f0;
+    --bg: #f6f8fc;
+    --c0: #f7d6d6;   /* no prescriber */
+    --cp: #fbe3a6;   /* pending only */
+    --c1: #d3e0ff;
+    --c2: #8eb0ff;
+    --c3: #336dff;
+    --c4: #00164c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 28px 24px 40px; }
+  header {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+    padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 22px;
+  }
+  header img { height: 56px; width: auto; display: block; }
+  header .title { text-align: right; }
+  header h1 { margin: 0; font-size: 24px; color: var(--navy); letter-spacing: -0.01em; }
+  header p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px; box-shadow: 0 1px 2px rgba(0,22,76,0.04);
+  }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+  .stat { padding: 14px 16px; }
+  .stat .n { font-size: 26px; font-weight: 700; color: var(--navy); line-height: 1.1; }
+  .stat .l { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+  .controls .lbl { font-size: 13px; color: var(--muted); margin-right: 4px; }
+  .chip {
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+    padding: 7px 14px; border-radius: 999px; font: inherit; font-size: 14px; cursor: pointer;
+  }
+  .chip:hover { border-color: var(--blue); }
+  .chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .chip .ct { opacity: .7; margin-left: 4px; font-size: 12px; }
+
+  .main { display: grid; grid-template-columns: 1fr 280px; gap: 18px; align-items: start; }
+
+  .map {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, auto);
+    gap: 5px;
+  }
+  .tile {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    border: 0; padding: 0; font: inherit; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-weight: 700; font-size: clamp(11px, 1.4vw, 16px);
+    color: var(--ink);
+    position: relative;
+    transition: transform .08s ease, box-shadow .08s ease;
+  }
+  .tile small { font-weight: 600; font-size: clamp(8px, .85vw, 11px); opacity: .8; margin-top: 1px; }
+  .tile:hover, .tile:focus-visible, .tile.sel {
+    transform: scale(1.06); box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--navy); z-index: 2; outline: none;
+  }
+  .tile.dark { color: #fff; }
+  .tile.pend::after {
+    content: ""; position: absolute; top: 5px; right: 5px; width: 7px; height: 7px;
+    border-radius: 50%; background: #e09a00; box-shadow: 0 0 0 1.5px #fff;
+  }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 16px; font-size: 13px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 16px; height: 16px; border-radius: 4px; display: inline-block; }
+  .legend i.dot { width: 9px; height: 9px; border-radius: 50%; background: #e09a00; }
+
+  .side h2 { font-size: 15px; margin: 0 0 10px; color: var(--navy); }
+  .detail .st { font-size: 22px; font-weight: 700; color: var(--navy); }
+  .detail .sub { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  .detail ul { list-style: none; padding: 0; margin: 0; }
+  .detail li { display: flex; justify-content: space-between; padding: 7px 0; border-top: 1px solid var(--line); font-size: 14px; }
+  .badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; font-weight: 600; }
+  .badge.a { background: #e6eeff; color: var(--blue); }
+  .badge.p { background: #fdf1d2; color: #9a6a00; }
+  .badge.n { background: #fbe4e4; color: #b42318; }
+  .gaps { margin-top: 18px; }
+  .gaps p { margin: 0 0 10px; font-size: 13px; line-height: 1.5; }
+  .gaps b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 2px; }
+
+  footer { margin-top: 22px; font-size: 12px; color: var(--muted); text-align: center; }
+
+  @media (max-width: 860px) {
+    .main { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    header .title { text-align: left; }
+  }
+  @media print {
+    body { background: #fff; }
+    .controls { display: none; }
+    .card { box-shadow: none; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iQ2FwYV8yIiBkYXRhLW5hbWU9IkNhcGEgMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjg4MC42IDEwMDMuMDUiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMzMzZkZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMSwgLmNscy0yIHsKICAgICAgICBzdHJva2Utd2lkdGg6IDBweDsKICAgICAgfQoKICAgICAgLmNscy0yIHsKICAgICAgICBmaWxsOiAjMDAxNjRjOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIj4KICAgIDxnPgogICAgICA8Zz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik05NS42Myw4NzQuNDJjMC03NS4yLDU0LjkyLTEyOC42MywxMjguNjMtMTI4LjYzLDYwLjg1LDAsMTA1LjM4LDM1LjEzLDExNi43Niw3OS4xNmwtNTguODgsMTUuMzRjLTUuOTQtMTYuODItMjUuNzMtMzUuMTMtNTYuNC0zNS4xMy0zNy4xMSwwLTY0LjMyLDI1LjczLTY0LjMyLDY5LjI3czI3LjIxLDY5LjI3LDY0LjMyLDY5LjI3YzMwLjY3LDAsNTAuNDYtMTguMzEsNTYuNC0zNS42Mmw1OC44OCwxNS44M2MtMTEuMzgsNDQuMDMtNTUuOTEsNzkuMTYtMTE2Ljc2LDc5LjE2LTc0LjIxLDAtMTI4LjYzLTUzLjQzLTEyOC42My0xMjguNjNaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzU5LjgxLDg3NC40MmMwLTc1LjcsNTguMzgtMTI4LjYzLDEzMi4xLTEyOC42M3MxMzIuMSw1Mi45NCwxMzIuMSwxMjguNjMtNTcuODgsMTI4LjYzLTEzMi4xLDEyOC42My0xMzIuMS01Mi45NC0xMzIuMS0xMjguNjNaTTQ5MS45LDk0My42OGMzOC41OSwwLDY2LjMtMjkuMTksNjYuMy02OS4yN3MtMjcuNzEtNjkuMjctNjYuMy02OS4yNy02Ni4zLDI5LjE5LTY2LjMsNjkuMjcsMjcuNzEsNjkuMjcsNjYuMyw2OS4yN1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik02NTUuMTYsNzUxLjcyaDY1Ljh2MjEuMjdjMTUuMzQtMTcuODEsMzguNTktMjcuMjEsNjguNzctMjcuMjEsNTQuOTIsMCw5My4wMSwzOC4wOSw5My4wMSw5Mi41MnYxNTguODFoLTY1Ljh2LTE0MC4wMWMwLTMyLjE2LTE3LjgxLTUxLjk1LTQ3LjUtNTEuOTVzLTQ4LjQ4LDIwLjI5LTQ4LjQ4LDUxLjk1djE0MC4wMWgtNjUuOHYtMjQ1LjM5WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTkxMy40MSw5MzEuODFsNTUuOTEtMTQuMzVjMy45NiwyMS43NywyNC4yNCwzNi4xMiw1MC45NiwzNi4xMiwyMC4yOCwwLDMzLjY0LTguOTEsMzMuNjQtMjIuMjZzLTkuODktMjAuNzgtMzYuMTItMjguMmwtMzAuMTgtOC45MWMtNDQuMDMtMTMuMzYtNjUuOC0zNi42MS02NS44LTcyLjIzLDAtNDYuMDEsMzUuNjItNzYuMTksOTEuNTMtNzYuMTksNTIuNDQsMCw5MS41MywyNy4yMSwxMDEuNDIsNzAuMjVsLTU1LjkxLDEwLjM5Yy02LjQzLTE4LjgtMjQuMjQtMzEuMTctNDUuMDItMzEuNjYtMTguMywwLTMwLjE4LDkuODktMzAuMTgsMjMuMjUsMCwxMi4zNyw5LjQsMTkuNzksMzUuNjIsMjYuMjJsMzAuMTgsOC40MWM0My41NCwxMi4zNyw2Ni4zLDM1LjEzLDY2LjMsNzIuNzMsMCw0Ni4wMS0zOC41OSw3Ny42Ny05NC45OSw3Ny42N3MtMTAyLjQxLTMxLjE3LTEwNy4zNi03MS4yNFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMTQ2LjQzLDkwMi4xMnYtMTUwLjRoNjUuOHYxNDAuMDFjMCwzMi42NSwxOC4zLDUxLjk1LDQ3Ljk5LDUxLjk1czQ3Ljk5LTIxLjI3LDQ3Ljk5LTU0LjQydi0xMzcuNTRoNjUuOHYyNDUuMzloLTY1Ljh2LTI3LjIxYy0xNS4zNCwyMS43Ny0zOC41OSwzMy4xNS02OC4yOCwzMy4xNS01NC45MiwwLTkzLjUxLTQwLjU3LTkzLjUxLTEwMC45M1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNDE5LjUyLDY1MC43OWg2NS44djM0Ni4zMmgtNjUuOHYtMzQ2LjMyWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1NTkuMDMsOTE3Ljk2di0xMTAuODJoLTQ1LjUydi01NS40MWgxOS43OWMxOS4yOSwwLDI1LjczLTEyLjM3LDI1LjczLTQ2LjUxdi0xOS43OWg2NS44djY2LjNoNTkuODZ2NTUuNDFoLTU5Ljg2djEwNi4zN2MwLDIwLjI4LDExLjM4LDMyLjE2LDMxLjE3LDMyLjE2LDEwLjg4LDAsMjIuMjYtMS45OCwzMS42Ni00Ljk1bDguOTEsNTEuNDVjLTE0Ljg0LDQuOTUtMzIuMTYsNy45Mi00OC45OCw3LjkyLTUzLjQzLDAtODguNTYtMzIuNjUtODguNTYtODIuMTNaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTcxMi4zOSw5MjkuODNjMC00MS41NiwyNi43Mi02Ni43OSw3Ny4xOC03NC43MWw4MC4xNS0xMi4zN3YtNS45NGMwLTIzLjc1LTE4LjMxLTM1LjYyLTQ2LjAxLTM1LjYycy00OC40OCwxNS4zNC01OS4zNywzOC41OWwtNTAuNDYtMjYuMjJjMTUuMzQtNDIuMDUsNTYuOS02Ny43OCwxMDkuODMtNjcuNzgsNjYuNzksMCwxMTEuODEsMzcuNiwxMTEuODEsOTEuMDN2MTYwLjNoLTY0Ljgxdi0yMC43OGMtMTYuODIsMTYuODItNDEuMDYsMjYuNzItNzEuMjQsMjYuNzItNDcsMC04Ny4wOC0yNy4yMS04Ny4wOC03My4yMlpNMTgxNC44LDk1My41OGMzMS42Ni0uNDksNTQuOTItMTguMzEsNTQuOTItNDkuNDd2LTE0Ljg0bC02Ni43OSwxMC44OGMtMTYuMzMsMi40Ny0yNi43MiwxMS44OC0yNi43MiwyNi4yMiwwLDE4LjMxLDE1LjgzLDI3LjcxLDM4LjU5LDI3LjIxWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE5OTguODUsOTE3Ljk2di0xMTAuODJoLTQ1LjUydi01NS40MWgxOS43OWMxOS4zLDAsMjUuNzMtMTIuMzcsMjUuNzMtNDYuNTF2LTE5Ljc5aDY1Ljh2NjYuM2g1OS44NnY1NS40MWgtNTkuODZ2MTA2LjM3YzAsMjAuMjgsMTEuMzgsMzIuMTYsMzEuMTcsMzIuMTYsMTAuODgsMCwyMi4yNi0xLjk4LDMxLjY2LTQuOTVsOC45MSw1MS40NWMtMTQuODQsNC45NS0zMi4xNiw3LjkyLTQ4Ljk4LDcuOTItNTMuNDMsMC04OC41Ni0zMi42NS04OC41Ni04Mi4xM1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMTk2LjczLDYzOC45MmMyMy43NSwwLDQyLjU1LDE5Ljc5LDQyLjU1LDQyLjU1cy0xOC44LDQyLjA1LTQyLjU1LDQyLjA1LTQyLjU1LTE5LjMtNDIuNTUtNDIuMDUsMTguOC00Mi41NSw0Mi41NS00Mi41NVpNMjE2NC4wOCw3NTEuNzJoNjUuOHYyNDUuMzloLTY1Ljh2LTI0NS4zOVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMjYyLjA0LDg3NC40MmMwLTc1LjcsNTguMzgtMTI4LjYzLDEzMi4xLTEyOC42M3MxMzIuMSw1Mi45NCwxMzIuMSwxMjguNjMtNTcuODksMTI4LjYzLTEzMi4xLDEyOC42My0xMzIuMS01Mi45NC0xMzIuMS0xMjguNjNaTTIzOTQuMTMsOTQzLjY4YzM4LjU5LDAsNjYuMy0yOS4xOSw2Ni4zLTY5LjI3cy0yNy43LTY5LjI3LTY2LjMtNjkuMjctNjYuMywyOS4xOS02Ni4zLDY5LjI3LDI3LjcxLDY5LjI3LDY2LjMsNjkuMjdaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjU1Ny4zOSw3NTEuNzJoNjUuOHYyMS4yN2MxNS4zNC0xNy44MSwzOC41OS0yNy4yMSw2OC43Ny0yNy4yMSw1NC45MiwwLDkzLjAxLDM4LjA5LDkzLjAxLDkyLjUydjE1OC44MWgtNjUuOHYtMTQwLjAxYzAtMzIuMTYtMTcuODEtNTEuOTUtNDcuNS01MS45NXMtNDguNDgsMjAuMjktNDguNDgsNTEuOTV2MTQwLjAxaC02NS44di0yNDUuMzlaIi8+CiAgICAgIDwvZz4KICAgICAgPGc+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMCwxNjMuNjVoOTUuNjN2MzAuMmMyMi4yOS0yNS44OCw1Mi40OS0zOC44Miw5My40Ny0zOC44Miw0OS42MSwwLDg5Ljg3LDIxLjU3LDExMi4xNiw1OC4yNCwyMi4yOS0zOC4xMSw1OC45Ni01OC4yNCwxMTEuNDQtNTguMjQsNzYuOTMsMCwxMzAuMTQsNTQuNjQsMTMwLjE0LDEzNC40NXYyMzAuOGgtOTUuNjN2LTIwOS45NWMwLTQyLjQyLTI0LjQ1LTY5LjAyLTYzLjk5LTY5LjAycy02My45OSwyNy4zMi02My45OSw2OS4wMnYyMDkuOTVoLTk1LjYzdi0yMDkuOTVjMC00Mi40Mi0yNC40NS02OS4wMi02My45OS02OS4wMnMtNjMuOTksMjcuMzItNjMuOTksNjkuMDJ2MjA5Ljk1SDBWMTYzLjY1WiIvPgogICAgICAgIDxnPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTQyNy4wMiwxNjMuODNoOTUuNTd2MzAuOWMyMi4yOC0yNS44Nyw1Ni4wNS0zOS41Miw5OS44OC0zOS41Miw3OS43NiwwLDEzNS4wOSw1NS4zMywxMzUuMDksMTM0LjM3djIzMC42NmgtOTUuNTd2LTIwMy4zNWMwLTQ2LjcxLTI1Ljg3LTc1LjQ1LTY4Ljk4LTc1LjQ1cy03MC40MiwyOS40Ni03MC40Miw3NS40NXYyMDMuMzVoLTk1LjU3VjE2My44M1oiLz4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE4MTcuMTksMTcuMjVoOTUuNTd2NTAyLjk5aC05NS41N1YxNy4yNVoiLz4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIwMjUuNTUsMGMzNC40OSwwLDYxLjgsMjguNzQsNjEuOCw2MS44cy0yNy4zMSw2MS4wOC02MS44LDYxLjA4LTYxLjgtMjguMDItNjEuOC02MS4wOFMxOTkxLjA2LDAsMjAyNS41NSwwWk0xOTc4LjEyLDE2My44M2g5NS41N3YzNTYuNGgtOTUuNTdWMTYzLjgzWiIvPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjEzOS4wNywxNjMuODNoOTUuNTd2MzAuOWMyMi4yOC0yNS44Nyw1Ni4wNS0zOS41Miw5OS44OC0zOS41Miw3OS43NiwwLDEzNS4wOSw1NS4zMywxMzUuMDksMTM0LjM3djIzMC42NmgtOTUuNTd2LTIwMy4zNWMwLTQ2LjcxLTI1Ljg3LTc1LjQ1LTY4Ljk4LTc1LjQ1cy03MC40MiwyOS40Ni03MC40Miw3NS40NXYyMDMuMzVoLTk1LjU3VjE2My44M1oiLz4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI1MTMuNDIsMzQyLjAzYzAtMTA5Ljk0LDgzLjM1LTE4Ni44MiwxODguMjYtMTg2LjgyczE3OC45Miw2OS43LDE3OC45MiwxNzYuMDRjMCwxNS4wOS0xLjQ0LDMwLjE4LTIuMTYsMzcuMzdoLTI2OC43NGM3LjE5LDQ4LjE0LDQ1LjI3LDc5Ljc2LDk1LjU3LDc5Ljc2LDQzLjExLDAsNzEuODYtMjUuMTUsODIuNjMtNTEuNzNsODYuMjMsMjMuNzFjLTE4LjY4LDYwLjM2LTgyLjYzLDEwOC41LTE2OC44NiwxMDguNS0xMDcuMDYsMC0xOTEuODUtNzcuNi0xOTEuODUtMTg2LjgyWk0yNzg5LjM0LDI5OS42NGMtNy4xOS00MC4yNC00My4xMS02My45NS04Ni45NC02My45NXMtNzYuODgsMjEuNTYtODkuMSw2My45NWgxNzYuMDVaIi8+CiAgICAgICAgPC9nPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTEyMzIuMzQsMTY1LjJjLTE5LjgsMC0zOC45Nyw0LjEzLTU2Ljk4LDEyLjI4LTI2LjIsMTEuODYtNDguNTUsMzIuMTMtNjIuOTQsNTcuMDktMTIuMDcsMjAuOTMtMTguNDUsNDQuOC0xOC40NSw2OSwwLDU2LjM0LDM0LjYxLDEwNy4zNSw4Ni41NywxMjguMzUtMjAuMTYsODIuMDYtOTUuMTYsMTQxLjE2LTE3OS45NywxNDEuMTYtNzguODYsMC0xNDguMzgtNDkuNDItMTc0LjYzLTEyMy41MSwyNC43MS03LjU3LDQ3Ljk1LTIwLjc2LDY3LjQ5LTM4LjMzLDQxLjMtMzcuMTQsNjQuOTktOTEuMzcsNjQuOTktMTQ4Ljc3di05OC42NWgtNzkuNzh2OTguNjVjMCwyMy4yMi02LjcyLDQ1LjQ3LTE5LjQ0LDY0LjM2LTE5LjQ3LDI4LjkxLTUwLjg4LDQ2LjE2LTg0LjA0LDQ2LjE2cy02NC42MS0xNy4yOC04NC4wNy00Ni4yMmMtMTIuNjktMTguODgtMTkuNDEtNDEuMTItMTkuNDEtNjQuMzF2LTk4LjY1aC03OS43OHY5OC42NWMwLDU3LjQ0LDIzLjcxLDExMS42OSw2NS4wNSwxNDguODQsMjEuNTgsMTkuMzksNDcuMzksMzMuMzIsNzQuODIsNDAuNDEsMTQuMDEsNTkuMDIsNDcuNjgsMTEyLjUyLDk1LjA3LDE1MC45Myw0OC45MywzOS42NSwxMTAuNjMsNjEuNDksMTczLjc0LDYxLjQ5czEyOS43OC0yMy42MSwxNzkuNzYtNjYuNDdjNDguNjItNDEuNyw4MS4zNS05OS4wMyw5Mi4zOC0xNjEuNzQsNTcuODctMTcuNjMsOTguMDEtNzEuNTksOTguMDEtMTMyLjM1LDAtNzYuMy02Mi4wOC0xMzguMzgtMTM4LjM4LTEzOC4zOFpNMTI5NS43MiwzMDMuNThjMCwxOC40LTguMDYsMzUuODktMjIuMTEsNDcuOTktMTEuNTIsOS45My0yNi4xOCwxNS4zOS00MS4yNywxNS4zOS0zNC45NSwwLTYzLjM4LTI4LjQzLTYzLjM4LTYzLjM4czI4LjQyLTYzLjM4LDYzLjM4LTYzLjM4aC4wMWMuMjcuMDIuNTUuMDQuODIuMDQsMzQuNDkuNDUsNjIuNTUsMjguODYsNjIuNTUsNjMuMzNaIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" alt="My Online Consultation">
+    <div class="title">
+      <h1>Prescriber State Coverage</h1>
+      <p>Updated November 11, 2026</p>
+    </div>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="controls" id="controls" role="group" aria-label="Filter by prescriber">
+    <span class="lbl">View:</span>
+  </div>
+
+  <div class="main">
+    <div class="card">
+      <div class="map" id="map"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+
+    <div class="side">
+      <div class="card detail" id="detail"></div>
+      <div class="card gaps" id="gaps"></div>
+    </div>
+  </div>
+
+  <footer>myonlineconsultation.com &middot; Internal coverage reference</footer>
+</div>
+
+<script>
+// ---- Coverage data: edit here ----
+// a = active prescribers, p = pending applications
+const DATA = {
+  AL:{n:"Alabama",a:["Alberto","Emilio"]},
+  AK:{n:"Alaska",a:["Emilio"]},
+  AZ:{n:"Arizona",a:["Alberto","Yadira"]},
+  AR:{n:"Arkansas",a:["Alberto"]},
+  CA:{n:"California",a:["Morgan","Emilio"]},
+  CO:{n:"Colorado",a:["Alberto","Yadira","Emilio"]},
+  CT:{n:"Connecticut",a:["Alberto","Yadira"]},
+  DE:{n:"Delaware",a:["Alberto"]},
+  DC:{n:"District of Columbia",a:["Alberto"]},
+  FL:{n:"Florida",a:["Alberto","Yadira","Morgan","Emilio"]},
+  GA:{n:"Georgia",a:["Alberto"]},
+  HI:{n:"Hawaii",a:["Emilio"]},
+  ID:{n:"Idaho",a:["Emilio"]},
+  IL:{n:"Illinois",a:["Alberto","Yadira","Emilio"]},
+  IN:{n:"Indiana",a:["Morgan"]},
+  IA:{n:"Iowa",a:["Alberto"]},
+  KS:{n:"Kansas",a:[],p:["Alberto"]},
+  KY:{n:"Kentucky",a:["Alberto","Emilio"]},
+  LA:{n:"Louisiana",a:["Alberto"]},
+  ME:{n:"Maine",a:["Yadira"]},
+  MD:{n:"Maryland",a:["Yadira","Emilio"]},
+  MA:{n:"Massachusetts",a:["Alberto"]},
+  MI:{n:"Michigan",a:["Emilio"]},
+  MN:{n:"Minnesota",a:["Alberto"]},
+  MS:{n:"Mississippi",a:[]},
+  MO:{n:"Missouri",a:["Alberto","Emilio"]},
+  MT:{n:"Montana",a:["Alberto"]},
+  NE:{n:"Nebraska",a:["Alberto"]},
+  NV:{n:"Nevada",a:["Alberto","Morgan"]},
+  NH:{n:"New Hampshire",a:["Alberto"]},
+  NJ:{n:"New Jersey",a:["Yadira","Emilio"],p:["Alberto"]},
+  NM:{n:"New Mexico",a:["Alberto"]},
+  NY:{n:"New York",a:["Alberto","Yadira"]},
+  NC:{n:"North Carolina",a:[]},
+  ND:{n:"North Dakota",a:["Alberto"]},
+  OH:{n:"Ohio",a:["Yadira","Morgan","Emilio"]},
+  OK:{n:"Oklahoma",a:["Alberto"]},
+  OR:{n:"Oregon",a:[],p:["Alberto"]},
+  PA:{n:"Pennsylvania",a:["Yadira","Emilio"]},
+  RI:{n:"Rhode Island",a:[],p:["Alberto"]},
+  SC:{n:"South Carolina",a:["Emilio"]},
+  SD:{n:"South Dakota",a:["Alberto"]},
+  TN:{n:"Tennessee",a:["Alberto","Emilio"]},
+  TX:{n:"Texas",a:["Yadira","Emilio"],p:["Alberto"]},
+  UT:{n:"Utah",a:["Alberto","Yadira","Emilio"]},
+  VT:{n:"Vermont",a:["Alberto"]},
+  VA:{n:"Virginia",a:["Alberto","Emilio"]},
+  WA:{n:"Washington",a:["Alberto","Emilio"]},
+  WV:{n:"West Virginia",a:["Alberto"]},
+  WI:{n:"Wisconsin",a:["Emilio"]},
+  WY:{n:"Wyoming",a:[]},
+  PR:{n:"Puerto Rico",a:[]},
+};
+const PRESCRIBERS = ["Alberto","Emilio","Yadira","Morgan"];
+
+// Tile grid positions [col,row], 0-based
+const POS = {
+  AK:[0,0], ME:[11,0],
+  VT:[10,1], NH:[11,1],
+  WA:[1,2], ID:[2,2], MT:[3,2], ND:[4,2], MN:[5,2], IL:[6,2], WI:[7,2], MI:[8,2], NY:[9,2], RI:[10,2], MA:[11,2],
+  OR:[1,3], NV:[2,3], WY:[3,3], SD:[4,3], IA:[5,3], IN:[6,3], OH:[7,3], PA:[8,3], NJ:[9,3], CT:[10,3],
+  CA:[1,4], UT:[2,4], CO:[3,4], NE:[4,4], MO:[5,4], KY:[6,4], WV:[7,4], VA:[8,4], MD:[9,4], DE:[10,4],
+  AZ:[2,5], NM:[3,5], KS:[4,5], AR:[5,5], TN:[6,5], NC:[7,5], SC:[8,5], DC:[9,5],
+  OK:[4,6], LA:[5,6], MS:[6,6], AL:[7,6], GA:[8,6],
+  HI:[0,7], TX:[4,7], FL:[9,7], PR:[11,7],
+};
+
+let view = "All";
+let selected = null;
+
+const $ = id => document.getElementById(id);
+const pend = s => DATA[s].p || [];
+
+function tileStyle(code) {
+  const d = DATA[code];
+  if (view === "All") {
+    const k = d.a.length;
+    if (k === 0) return pend(code).length ? ["var(--cp)", false] : ["var(--c0)", false];
+    return [["", "var(--c1)", "var(--c2)", "var(--c3)", "var(--c4)"][Math.min(k,4)], k >= 3];
+  }
+  if (d.a.includes(view)) return ["var(--c3)", true];
+  if (pend(code).includes(view)) return ["var(--cp)", false];
+  return ["#eef1f6", false];
+}
+
+function renderMap() {
+  const map = $("map");
+  map.innerHTML = "";
+  for (const [code, [c, r]] of Object.entries(POS)) {
+    const d = DATA[code];
+    const [bg, dark] = tileStyle(code);
+    const b = document.createElement("button");
+    b.className = "tile" + (dark ? " dark" : "") + (code === selected ? " sel" : "");
+    if (view === "All" && pend(code).length) b.classList.add("pend");
+    b.style.gridColumn = c + 1;
+    b.style.gridRow = r + 1;
+    b.style.background = bg;
+    if (view !== "All" && !d.a.includes(view) && !pend(code).includes(view)) b.style.color = "#a3aabd";
+    const count = view === "All" ? d.a.length : "";
+    b.innerHTML = code + (view === "All" ? `<small>${count}</small>` : "");
+    b.title = `${d.n}: ${d.a.length ? d.a.join(", ") : "No active prescriber"}` +
+              (pend(code).length ? ` (pending: ${pend(code).join(", ")})` : "");
+    b.setAttribute("aria-label", b.title);
+    b.addEventListener("click", () => { selected = code; renderMap(); renderDetail(); });
+    b.addEventListener("mouseenter", () => renderDetail(code));
+    b.addEventListener("mouseleave", () => renderDetail());
+    map.appendChild(b);
+  }
+}
+
+function renderLegend() {
+  const items = view === "All"
+    ? [["var(--c0)","No prescriber"],["var(--cp)","Pending only"],["var(--c1)","1"],["var(--c2)","2"],["var(--c3)","3"],["var(--c4)","4"]]
+    : [["var(--c3)",`${view} active`],["var(--cp)",`${view} pending`],["#eef1f6","Not licensed"]];
+  $("legend").innerHTML = items.map(([c,l]) => `<span><i style="background:${c}"></i>${l}</span>`).join("") +
+    (view === "All" ? `<span><i class="dot"></i>Application pending</span>` : "") +
+    (view === "All" ? `<span style="margin-left:auto">Number on tile = active prescribers</span>` : "");
+}
+
+function renderDetail(hover) {
+  const code = hover || selected;
+  const el = $("detail");
+  if (!code) {
+    el.innerHTML = `<h2>State details</h2><p class="sub" style="margin:0">Hover over or tap a state to see who covers it.</p>`;
+    return;
+  }
+  const d = DATA[code];
+  const rows = d.a.map(n => `<li>${n}<span class="badge a">Active</span></li>`)
+    .concat(pend(code).map(n => `<li>${n}<span class="badge p">Pending</span></li>`));
+  el.innerHTML = `<div class="st">${d.n}</div>
+    <div class="sub">${code} &middot; ${d.a.length} active prescriber${d.a.length === 1 ? "" : "s"}</div>
+    <ul>${rows.length ? rows.join("") : `<li>No coverage<span class="badge n">Gap</span></li>`}</ul>`;
+}
+
+function renderStats() {
+  const codes = Object.keys(DATA);
+  const covered = codes.filter(c => DATA[c].a.length).length;
+  const none = codes.filter(c => !DATA[c].a.length).length;
+  const single = codes.filter(c => DATA[c].a.length === 1).length;
+  const pending = codes.reduce((s,c) => s + pend(c).length, 0);
+  $("stats").innerHTML = [
+    [covered, `of ${codes.length} states &amp; territories covered`],
+    [none, "with no active prescriber"],
+    [single, "covered by only one prescriber"],
+    [pending, "license applications pending"],
+  ].map(([n,l]) => `<div class="card stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+}
+
+function renderGaps() {
+  const codes = Object.keys(DATA).sort();
+  const none = codes.filter(c => !DATA[c].a.length && !pend(c).length);
+  const pendOnly = codes.filter(c => !DATA[c].a.length && pend(c).length);
+  const single = codes.filter(c => DATA[c].a.length === 1);
+  $("gaps").innerHTML = `<h2>Coverage gaps</h2>
+    <p><b>No prescriber</b>${none.join(", ") || "None"}</p>
+    <p><b>Pending only</b>${pendOnly.join(", ") || "None"}</p>
+    <p><b>Only one prescriber</b>${single.join(", ")}</p>`;
+}
+
+function renderControls() {
+  const box = $("controls");
+  box.querySelectorAll(".chip").forEach(n => n.remove());
+  for (const name of ["All", ...PRESCRIBERS]) {
+    const ct = name === "All" ? "" : Object.values(DATA).filter(d => d.a.includes(name)).length;
+    const b = document.createElement("button");
+    b.className = "chip";
+    b.setAttribute("aria-pressed", String(view === name));
+    b.innerHTML = name === "All" ? "All prescribers" : `${name}<span class="ct">${ct}</span>`;
+    b.addEventListener("click", () => { view = name; renderControls(); renderMap(); renderLegend(); });
+    box.appendChild(b);
+  }
+}
+
+renderStats();
+renderControls();
+renderMap();
+renderLegend();
+renderDetail();
+renderGaps();
+</script>
+</body>
+</html>
